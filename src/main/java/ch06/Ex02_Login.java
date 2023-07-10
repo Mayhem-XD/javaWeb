@@ -27,6 +27,7 @@ public class Ex02_Login extends HttpServlet {
 		String uid = request.getParameter("uid");
 		String pwd = request.getParameter("pwd");
 		String[] countries = request.getParameterValues("country");
+//		getParameterName 사용X
 		
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
