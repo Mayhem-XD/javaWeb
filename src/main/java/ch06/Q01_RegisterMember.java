@@ -74,6 +74,7 @@ public class Q01_RegisterMember extends HttpServlet {
 				+ "		<li>이름: "+uname+"</li>"
 				+ "		<li>이메일: "+email+"</li>"
 				+ "	</ul>"
+				+ "	<button onclick=\"location.href='/jw/ch06/register'\">재실행</button>"
 				+ "</body>"
 				+ "</html>";
 		out.print(html);
