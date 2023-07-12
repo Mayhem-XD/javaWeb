@@ -1,4 +1,4 @@
-package Users;
+package ch09_Cookie_Session.Users;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class UserList
  */
-@WebServlet("/UserList")
+@WebServlet("/ch09/users/listView")
 public class UserList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

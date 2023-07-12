@@ -1,4 +1,4 @@
-package Users;
+package ch09_Cookie_Session.Users;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
