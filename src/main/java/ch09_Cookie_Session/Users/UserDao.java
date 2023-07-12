@@ -13,11 +13,11 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class UserDao {
-	public Connection getConnection() {
+	public Connection getConnection() {			// getConnection(): 데이터베이스 연결을 설정하는 메소드
 		Connection conn = null;
 		try {
 			Context initContext = new InitialContext();
-			DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/project");
+			DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/project");	// lookup():""에 바인딩된 DataSource 객체를 검색 
 			conn = ds.getConnection();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -27,12 +27,12 @@ public class UserDao {
 	
 	public User getUser(String uid) {
 		User u = null;
-		Connection conn = getConnection();
-		String sql = "select * from users where uid=?";
+		Connection conn = getConnection();		 // 데이터베이스 연결을 설정
+		String sql = "select * from users where uid=? and isDeleted=0";			//  SQL 쿼리를 준비
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, uid);
-			ResultSet rs = pstmt.executeQuery();		
+			pstmt.setString(1, uid);		// 쿼리의 첫 번째 매개변수에 사용자 ID를 설정
+			ResultSet rs = pstmt.executeQuery();	// 쿼리를 실행하고 결과를 가져옴		ResultSet 객체는 DB쿼리의 결과 테이블 형태의 데이터	
 			while (rs.next()) {
 				u = new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
 							 LocalDate.parse(rs.getString(5)), rs.getInt(6));
@@ -110,7 +110,7 @@ public class UserDao {
 	}
 	public void updateUserWithoutPassword(User u) {
 		Connection conn = getConnection();
-		String sql = "update users set  uname=?, email=?, where uid=?";
+		String sql = "update users set uname=?, email=? where uid=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, u.getUname());

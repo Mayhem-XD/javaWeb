@@ -57,6 +57,7 @@ public class UpdateViewer extends HttpServlet {
 				+ "    </form>"
 				+ "</body>"
 				+ "</html>";
+		out.print(html);
 	}
 
 
