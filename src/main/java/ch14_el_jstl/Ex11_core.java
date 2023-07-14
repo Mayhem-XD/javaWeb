@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Ex03_Pojo
  */
-@WebServlet("/ch14/el4")
-public class Ex03_Pojo extends HttpServlet {
+@WebServlet("/ch14/jstl1")
+public class Ex11_core extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Address addr1 = new Address(12345, "수원", "한국");

@@ -12,25 +12,23 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Ex03_Pojo
  */
-@WebServlet("/ch14/el4")
-public class Ex03_Pojo extends HttpServlet {
+@WebServlet("/ch14/jstl2")
+public class Ex12_if_forEach extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Address addr1 = new Address(12345, "수원", "한국");
 		Address addr2 = new Address(67890, "용인", "한국");
 		
-		Member m1 = new Member(101, "제임스", addr1);
-		Member m2 = new Member(102, "마리아", addr2);
+		Member m1 = new Member(101, "김자바", addr1);
+		Member m2 = new Member(102, "박디비", addr2);
+		Member m3 = new Member(103, "제임스", new Address(99999, "뉴욕", "미국"));
+		Member m4 = new Member(104, "마리아", new Address(88888, "시카고", "미국"));
 		
-		request.setAttribute("m1", m1);
-		request.setAttribute("m2", m2);
-		
-		Member[] members = {m1,m2};
+		Member[] members = {m1,m2,m3,m4};
 		request.setAttribute("members", members);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/ch14/ex11_core.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/ch14/ex12_if_forEach.jsp");
 		rd.forward(request, response);
-		
 		
 	}
 
