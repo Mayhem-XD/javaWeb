@@ -46,4 +46,11 @@
               password="yspass"
               driverClassName="com.mysql.cj.jdbc.Driver"
               url="jdbc:mysql://localhost:3306/project" />
+    <Resource name="jdbc/jtest"
+              auth="Container"
+              type="javax.sql.DataSource"
+              username="ysuser"
+              password="yspass"
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/jtest" />
 </Context>
